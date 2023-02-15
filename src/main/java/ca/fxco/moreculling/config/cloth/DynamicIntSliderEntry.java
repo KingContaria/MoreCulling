@@ -5,7 +5,6 @@ import ca.fxco.moreculling.mixin.accessors.ClickableWidgetAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.SliderWidget;
-import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.Window;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
@@ -70,7 +69,7 @@ public class DynamicIntSliderEntry extends AbstractDynamicEntry<Integer> {
 
     private class Slider extends SliderWidget {
         protected Slider(int int_1, int int_2, int int_3, int int_4, double double_1) {
-            super(int_1, int_2, int_3, int_4, NarratorManager.EMPTY, double_1);
+            super(int_1, int_2, int_3, int_4, TextHelper.EMPTY, double_1);
         }
 
         public void updateMessage() {

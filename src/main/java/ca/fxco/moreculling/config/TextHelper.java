@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config;
 
+import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 
@@ -7,6 +8,8 @@ import net.minecraft.text.Text;
  * Utility class for ease of porting to older Minecraft versions.
  */
 public class TextHelper {
+
+    public static final Text EMPTY = ScreenTexts.EMPTY;
 
     public static MutableText literal(String string) {
         return Text.literal(string);

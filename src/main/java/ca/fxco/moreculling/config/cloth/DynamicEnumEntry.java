@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.ButtonHelper;
 import ca.fxco.moreculling.config.TextHelper;
 import ca.fxco.moreculling.mixin.accessors.ClickableWidgetAccessor;
 import com.google.common.collect.ImmutableList;
@@ -7,9 +8,7 @@ import me.shedaniel.clothconfig2.gui.entries.SelectionListEntry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.Window;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
@@ -55,13 +54,13 @@ public class DynamicEnumEntry<T extends Enum<?>> extends AbstractDynamicEntry<T>
 
     @Override
     protected ClickableWidget createMainWidget() {
-        return ButtonWidget.builder(NarratorManager.EMPTY, (widget) -> {
+        return ButtonHelper.createButton(0, 0, 150, 20, TextHelper.EMPTY, (widget) -> {
             if (!this.isLocked() && this.isEnabled()) {
                 this.index.incrementAndGet();
                 this.index.compareAndSet(this.values.size(), 0);
                 this.onChange();
             }
-        }).dimensions(0, 0, 150, 20).build();
+        });
     }
 
     @Override

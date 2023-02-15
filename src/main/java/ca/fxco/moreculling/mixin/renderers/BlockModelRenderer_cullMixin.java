@@ -27,7 +27,7 @@ public abstract class BlockModelRenderer_cullMixin implements ExtendedBlockModel
 
     @Shadow
     @Final
-    private static Direction[] DIRECTIONS;
+    static Direction[] DIRECTIONS;
 
     @Override
     public void renderQuad(MatrixStack.Entry entry, VertexConsumer vertices, float red, float green, float blue,

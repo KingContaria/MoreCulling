@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.ButtonHelper;
 import ca.fxco.moreculling.mixin.accessors.ClickableWidgetAccessor;
 import com.google.common.collect.Lists;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
@@ -53,12 +54,12 @@ public abstract class AbstractDynamicEntry<T> extends TooltipListEntry<T> {
         this.changeConsumer = changeConsumer;
         this.saveConsumer = saveConsumer;
         this.mainWidget = this.createMainWidget();
-        this.resetButton = ButtonWidget.builder(resetButtonKey, (widget) -> {
+        this.resetButton = ButtonHelper.createButton(0,0, MinecraftClient.getInstance().textRenderer.getWidth(resetButtonKey) + 6, 20, resetButtonKey, (widget) -> {
             if (this.getDefaultValue().isPresent() && !this.getValue().equals(this.getDefaultValue().get())) {
                 this.setValue(this.getDefaultValue().get());
                 this.onChange();
             }
-        }).dimensions(0,0, MinecraftClient.getInstance().textRenderer.getWidth(resetButtonKey) + 6, 20).build();
+        });
         this.widgets = Lists.newArrayList(this.mainWidget, this.resetButton);
     }
 

@@ -1,6 +1,5 @@
 package ca.fxco.moreculling.config.cloth;
 
-import ca.fxco.moreculling.config.TextHelper;
 import com.google.common.collect.Maps;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -20,7 +19,7 @@ import java.util.function.Consumer;
 public class MoreCullingClothConfigBuilder implements ConfigBuilder {
     private Runnable savingRunnable;
     private Screen parent;
-    private Text title = TextHelper.translatable("moreculling.title");
+    private Text title = Text.translatable("moreculling.title");
     private boolean editable = true;
     private boolean tabsSmoothScroll = true;
     private boolean listSmoothScroll = true;
@@ -200,7 +199,7 @@ public class MoreCullingClothConfigBuilder implements ConfigBuilder {
             );
             screen.setSavingRunnable(this.savingRunnable);
             screen.setEditable(this.editable);
-            screen.setFallbackCategory(this.fallbackCategory == null ? null : TextHelper.literal(this.fallbackCategory));
+            screen.setFallbackCategory(this.fallbackCategory == null ? null : Text.literal(this.fallbackCategory));
             screen.setTransparentBackground(this.transparentBackground);
             screen.setAlwaysShowTabs(this.alwaysShowTabs);
             screen.setConfirmSave(this.doesConfirmSave);

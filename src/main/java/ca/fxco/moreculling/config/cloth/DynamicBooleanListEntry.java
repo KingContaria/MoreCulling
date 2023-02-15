@@ -1,11 +1,10 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.ButtonHelper;
 import ca.fxco.moreculling.config.TextHelper;
 import ca.fxco.moreculling.mixin.accessors.ClickableWidgetAccessor;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.Window;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
@@ -31,12 +30,12 @@ public class DynamicBooleanListEntry extends AbstractDynamicEntry<Boolean> {
 
     @Override
     protected ClickableWidget createMainWidget() {
-        return ButtonWidget.builder(NarratorManager.EMPTY, (widget) -> {
+        return ButtonHelper.createButton(0, 0, 150, 20, TextHelper.EMPTY, (widget) -> {
             if (this.isEnabled()) {
                 this.setValue(!this.getValue());
                 this.onChange();
             }
-        }).dimensions(0, 0, 150, 20).build();
+        });
     }
 
     @Override

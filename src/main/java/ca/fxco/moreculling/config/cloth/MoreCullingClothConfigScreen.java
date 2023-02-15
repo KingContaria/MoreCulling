@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.ButtonHelper;
 import ca.fxco.moreculling.config.TextHelper;
 import ca.fxco.moreculling.utils.CacheUtils;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -25,12 +26,11 @@ public class MoreCullingClothConfigScreen extends ClothConfigScreen {
     protected void init() {
         super.init();
         int buttonWidths = Math.min(200, (this.width - 50 - 12) / 4);
-        this.addDrawableChild(this.resetCacheButton = ButtonWidget.builder(
-                TextHelper.translatable("moreculling.config.resetCache"),
+        this.addDrawableChild(this.resetCacheButton = ButtonHelper.createButton(10, 5, buttonWidths, 20, TextHelper.translatable("moreculling.config.resetCache"),
                 (widget) -> {
                     CacheUtils.resetAllCache();
                     this.resetCacheButton.active = false;
-                }).dimensions(10, 5, buttonWidths, 20).build()
+                })
         );
     }
 }
