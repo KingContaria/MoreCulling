@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.option;
 
+import ca.fxco.moreculling.config.TextHelper;
 import me.shedaniel.clothconfig2.gui.entries.SelectionListEntry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -30,7 +31,7 @@ public enum LeavesCullingMode implements SelectionListEntry.Translatable {
     }
 
     public Text getText() {
-        return Text.translatable(this.translationKey);
+        return TextHelper.translatable(this.translationKey);
     }
 
     @Override

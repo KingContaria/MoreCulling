@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.sodium;
 
+import ca.fxco.moreculling.config.TextHelper;
 import me.jellysquid.mods.sodium.client.gui.options.Option;
 import me.jellysquid.mods.sodium.client.gui.options.OptionFlag;
 import me.jellysquid.mods.sodium.client.gui.options.OptionImpact;
@@ -236,7 +237,7 @@ public class MoreCullingSodiumOptionImpl<S, T> implements Option<T> {
             if (isLoaded) {
                 this.locked = true;
                 this.enabled = false;
-                this.tooltip = Text.translatable("moreculling.config.optionDisabled", modId);
+                this.tooltip = TextHelper.translatable("moreculling.config.optionDisabled", modId);
                 this.onChanged = null;
             }
             return this;

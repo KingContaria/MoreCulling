@@ -2,6 +2,7 @@ package ca.fxco.moreculling.mixin.gui;
 
 import ca.fxco.moreculling.MoreCulling;
 import ca.fxco.moreculling.config.SodiumOptionPage;
+import ca.fxco.moreculling.config.TextHelper;
 import ca.fxco.moreculling.utils.CacheUtils;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
@@ -60,7 +61,7 @@ public class SodiumOptionsGUIMixin extends Screen {
     private void addCacheRefreshButton(CallbackInfo ci) {
         if (MoreCulling.CONFIG.enableSodiumMenu && this.currentPage == this.moreCullingPage) {
             // 325 is the last button (211) + width (100) plus padding (20 + 4)
-            this.addDrawableChild(this.resetCacheButton = new FlatButtonWidget(new Dim2i(this.width - 325, this.height - 30, 100, 20), Text.translatable("moreculling.config.resetCache"), () -> {
+            this.addDrawableChild(this.resetCacheButton = new FlatButtonWidget(new Dim2i(this.width - 325, this.height - 30, 100, 20), TextHelper.translatable("moreculling.config.resetCache"), () -> {
                 CacheUtils.resetAllCache();
                 this.resetCacheButton.setEnabled(false);
             }));

@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.SliderWidget;
@@ -19,7 +20,7 @@ public class DynamicFloatSliderEntry extends AbstractDynamicEntry<Float> {
 
     public DynamicFloatSliderEntry(DynamicFloatSliderBuilder builder, float minimum, float maximum, float step) {
         super(builder.getFieldNameKey(), builder.getResetButtonKey(), builder.getValue(), builder.getDefaultValue(), builder.saveConsumer, builder.changeConsumer, null, builder.isRequireRestart(), builder.getLocked());
-        this.textGetter = (thevalue) -> Text.literal(String.format("Value: %3.1f", thevalue));
+        this.textGetter = (thevalue) -> TextHelper.literal(String.format("Value: %3.1f", thevalue));
         this.step = step;
         this.maximum = maximum;
         this.minimum = minimum;

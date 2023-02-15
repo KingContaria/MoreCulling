@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.impl.builders.FieldBuilder;
 import net.minecraft.text.Text;
@@ -25,7 +26,7 @@ public abstract class AbstractDynamicBuilder<T, A extends AbstractConfigListEntr
     private boolean locked = false;
 
     protected AbstractDynamicBuilder(Text fieldNameKey) {
-        this(fieldNameKey, Text.translatable("text.cloth-config.reset_value"));
+        this(fieldNameKey, TextHelper.translatable("text.cloth-config.reset_value"));
     }
 
     protected AbstractDynamicBuilder(Text fieldNameKey, Text resetButtonKey) {
@@ -54,7 +55,7 @@ public abstract class AbstractDynamicBuilder<T, A extends AbstractConfigListEntr
 
     public AbstractDynamicBuilder<T,A,?> setModIncompatibility(boolean isLoaded, String modId) {
         if (isLoaded) {
-            this.setTooltip(Text.translatable("moreculling.config.optionDisabled", modId));
+            this.setTooltip(TextHelper.translatable("moreculling.config.optionDisabled", modId));
             this.locked = true;
             this.saveConsumer = null;
             this.changeConsumer = null;
@@ -71,7 +72,7 @@ public abstract class AbstractDynamicBuilder<T, A extends AbstractConfigListEntr
             } else {
                 Text[] tooltips = currentTooltips.get();
                 Text[] newArray = new Text[tooltips.length + 1];
-                for (int i = 0; i < tooltips.length; i++) newArray[i] = tooltips[i];
+                System.arraycopy(tooltips, 0, newArray, 0, tooltips.length);
                 newArray[tooltips.length] = limitedMessage;
                 this.setTooltip(newArray);
             }

@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import com.google.common.collect.ImmutableList;
 import me.shedaniel.clothconfig2.gui.entries.SelectionListEntry;
 import net.fabricmc.api.EnvType;
@@ -32,10 +33,8 @@ public class DynamicEnumEntry<T extends Enum<?>> extends AbstractDynamicEntry<T>
         } else {
             this.values = ImmutableList.of(builder.getValue());
         }
-        this.nameProvider = nameProvider == null ? (t) -> {
-            return Text.translatable(t instanceof SelectionListEntry.Translatable ?
-                    ((SelectionListEntry.Translatable)t).getKey() : t.toString());
-        } : nameProvider;
+        this.nameProvider = nameProvider == null ? (t) -> TextHelper.translatable(t instanceof SelectionListEntry.Translatable ?
+                ((SelectionListEntry.Translatable)t).getKey() : t.toString()) : nameProvider;
         this.setValue(builder.getValue());
         this.onChange(); // Run once on load
     }

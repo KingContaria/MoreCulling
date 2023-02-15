@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import ca.fxco.moreculling.utils.CacheUtils;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.gui.ClothConfigScreen;
@@ -25,7 +26,7 @@ public class MoreCullingClothConfigScreen extends ClothConfigScreen {
         super.init();
         int buttonWidths = Math.min(200, (this.width - 50 - 12) / 4);
         this.addDrawableChild(this.resetCacheButton = ButtonWidget.builder(
-                Text.translatable("moreculling.config.resetCache"),
+                TextHelper.translatable("moreculling.config.resetCache"),
                 (widget) -> {
                     CacheUtils.resetAllCache();
                     this.resetCacheButton.active = false;

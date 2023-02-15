@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.SliderWidget;
@@ -18,7 +19,7 @@ public class DynamicIntSliderEntry extends AbstractDynamicEntry<Integer> {
 
     public DynamicIntSliderEntry(DynamicIntSliderBuilder builder, int minimum, int maximum) {
         super(builder.getFieldNameKey(), builder.getResetButtonKey(), builder.getValue(), builder.getDefaultValue(), builder.saveConsumer, builder.changeConsumer, null, builder.isRequireRestart(), builder.getLocked());
-        this.textGetter = (integer) -> Text.literal(String.format("Value: %d", integer));
+        this.textGetter = (integer) -> TextHelper.literal(String.format("Value: %d", integer));
         this.maximum = maximum;
         this.minimum = minimum;
         this.mainWidget.setMessage(this.textGetter.apply(this.getValue()));

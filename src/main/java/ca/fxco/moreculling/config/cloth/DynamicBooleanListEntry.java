@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.config.TextHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
@@ -55,6 +56,6 @@ public class DynamicBooleanListEntry extends AbstractDynamicEntry<Boolean> {
     }
 
     public Text getYesNoText(boolean bool) {
-        return Text.translatable("text.cloth-config.boolean.value." + bool);
+        return TextHelper.translatable("text.cloth-config.boolean.value." + bool);
     }
 }
