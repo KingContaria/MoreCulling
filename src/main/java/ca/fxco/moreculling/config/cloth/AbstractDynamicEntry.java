@@ -1,5 +1,6 @@
 package ca.fxco.moreculling.config.cloth;
 
+import ca.fxco.moreculling.mixin.accessors.ClickableWidgetAccessor;
 import com.google.common.collect.Lists;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.gui.entries.TooltipListEntry;
@@ -114,9 +115,9 @@ public abstract class AbstractDynamicEntry<T> extends TooltipListEntry<T> {
     public final void render(MatrixStack matrices, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean isHovered, float delta) {
         super.render(matrices, index, y, x, entryWidth, entryHeight, mouseX, mouseY, isHovered, delta);
         this.resetButton.active = this.isEnabled() && this.isEditable() && this.getDefaultValue().isPresent() && !this.getDefaultValue().get().equals(this.getValue());
-        this.resetButton.setY(y);
+        ((ClickableWidgetAccessor) this.resetButton).setY(y);
         this.mainWidget.active = this.isEnabled() && this.isEditable();
-        this.mainWidget.setY(y);
+        ((ClickableWidgetAccessor) this.mainWidget).setY(y);
 
         this.onRender(matrices, y, x, entryWidth, entryHeight);
 
