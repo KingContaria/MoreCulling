@@ -13,6 +13,7 @@
     "WorldRenderer_rainMixin",
     "accessors.AbstractBlockAccessor",
     "accessors.BlockModelsAccessor",
+    "accessors.ClickableWidgetAccessor"
     "accessors.SpriteContentsAccessor",
     "blocks.ChorusFlowerBlock_voxelMixin",
     "blocks.FletchingTableBlock_devMixin",
@@ -43,8 +44,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "accessors.ClickableWidgetAccessor"
-  ]
+  }
 }
