@@ -8,7 +8,6 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.BakedQuad;
 import net.minecraft.client.render.model.MultipartBakedModel;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import org.apache.commons.lang3.tuple.Pair;
@@ -18,6 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -70,7 +70,7 @@ public abstract class MultipartBakedModel_cacheMixin implements BakedOpacity {
             method = "getQuads",
             at = @At("RETURN")
     )
-    private void onGetQuads(@Nullable BlockState state, @Nullable Direction face, Random random,
+    private void onGetQuads(@Nullable BlockState state, @Nullable Direction face, @Coerce Object random,
                             CallbackInfoReturnable<List<BakedQuad>> cir) {
         if (face != null) { // Must be quads that have cullface
             List<BakedQuad> quads = cir.getReturnValue();

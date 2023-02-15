@@ -79,7 +79,8 @@ public abstract class JsonUnbakedModel_cullShapeMixin implements ExtendedUnbaked
             method = "<clinit>",
             at = @At(
                     value = "INVOKE",
-                    target = "Lcom/google/gson/GsonBuilder;create()Lcom/google/gson/Gson;"
+                    target = "Lcom/google/gson/GsonBuilder;create()Lcom/google/gson/Gson;",
+                    remap = false
             )
     )
     private static Gson registerCustomTypeAdapter(GsonBuilder builder) {
