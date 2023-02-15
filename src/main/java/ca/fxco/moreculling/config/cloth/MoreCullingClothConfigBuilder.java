@@ -200,7 +200,7 @@ public class MoreCullingClothConfigBuilder implements ConfigBuilder {
             );
             screen.setSavingRunnable(this.savingRunnable);
             screen.setEditable(this.editable);
-            screen.setFallbackCategory(this.fallbackCategory == null ? null : Text.literal(this.fallbackCategory));
+            screen.setFallbackCategory(this.fallbackCategory == null ? null : TextHelper.literal(this.fallbackCategory));
             screen.setTransparentBackground(this.transparentBackground);
             screen.setAlwaysShowTabs(this.alwaysShowTabs);
             screen.setConfirmSave(this.doesConfirmSave);
